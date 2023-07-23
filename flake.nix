@@ -10,16 +10,17 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
-          overlays = [(final: prev: {
-            lexurgy = prev.callPackage ./lexurgy.nix {};
-          })];
           inherit system;
         };
         lib = nixpkgs.lib;
-      in rec{
+      in {
+        packages.lexurgy = pkgs.callPackage ./lexurgy.nix {};
+        
+        defaultPackage = self.packages.${system}.lexurgy;
+        
         devShells.default = pkgs.mkShell {
-          packages = with pkgs; [
-            lexurgy
+          packages = [
+            self.packages.${system}.lexurgy
           ];
         };
       }
