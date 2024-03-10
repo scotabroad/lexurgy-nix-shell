@@ -1,5 +1,10 @@
 # Lexurgy Nix Shell
 
+## About
+This repository features the tools to enable the Lexurgy sound change applier inside a Nix shell.
+
+To know more about Lexurgy, see [here](https://github.com/def-gthill/lexurgy).
+
 ## Usage
 Note: Must have enabled experimental nix-commands in your Nix configuration
 
