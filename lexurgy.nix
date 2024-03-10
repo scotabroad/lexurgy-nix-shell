@@ -8,11 +8,11 @@
 
 stdenv.mkDerivation rec {
   pname = "lexurgy";
-  version = "1.3.8";
+  version = "1.4.0";
 
   src = fetchurl {
     url = "https://github.com/def-gthill/lexurgy/releases/download/v${version}/lexurgy-${version}.tar";
-    hash = "sha256-7u0Wmi/ofdv9orOclmHkJGKvTBlQTSrhZToOkOxauYY=";
+    hash = "sha256-5g5bHnswesgyFyicKEw4ABejIx1hTlXJmHW5T3XLO0c=";
   };
 
   nativeBuildInputs = [ makeWrapper ];
@@ -25,7 +25,7 @@ stdenv.mkDerivation rec {
   unpackCmd = "tar xvf $curSrc";
 
   #Need to specify full classPath found in CLASSPATH variable of $out/bin/lexurgy
-  classPath = "$out/lib/cli-1.3.8.jar:$out/lib/core-1.3.8.jar:$out/lib/kotlin-stdlib-jdk8-1.8.21.jar:$out/lib/clikt-jvm-2.7.0.jar:$out/lib/jna-platform-5.5.0.jar:$out/lib/jna-5.5.0.jar:$out/lib/kotlinx-serialization-json-jvm-1.5.1.jar:$out/lib/kotlinx-serialization-core-jvm-1.5.1.jar:$out/lib/kotlin-stdlib-jdk7-1.8.21.jar:$out/lib/kotlin-stdlib-1.8.21.jar:$out/lib/kotlin-stdlib-common-1.8.21.jar:$out/lib/antlr4-runtime-4.7.2.jar:$out/lib/annotations-13.0.jar";
+  classPath = "$out/lib/cli-1.4.0.jar:$out/lib/core-1.4.0.jar:$out/lib/kotlin-stdlib-jdk8-1.8.21.jar:$out/lib/clikt-jvm-2.7.0.jar:$out/lib/jna-platform-5.5.0.jar:$out/lib/jna-5.5.0.jar:$out/lib/kotlinx-serialization-json-jvm-1.5.1.jar:$out/lib/kotlinx-serialization-core-jvm-1.5.1.jar:$out/lib/kotlin-stdlib-jdk7-1.8.21.jar:$out/lib/kotlin-stdlib-1.8.21.jar:$out/lib/kotlin-stdlib-common-1.8.21.jar:$out/lib/antlr4-runtime-4.13.1.jar:$out/lib/annotations-13.0.jar";
 
   #Only want lexurgy and not lexurgy.bat
   installPhase = ''
